@@ -126,7 +126,7 @@ export default function AboutPage() {
         </p>
 
         <hr style={{ border: 'none', borderTop: '1px solid #E8E3DA', margin: '36px 0 20px' }} />
-        <p style={{ fontSize: 13, color: '#B0AA9E' }}>
+        <p style={{ fontSize: 14, color: '#B0AA9E' }}>
           Data sourced from public DID documents.
         </p>
       </div>
