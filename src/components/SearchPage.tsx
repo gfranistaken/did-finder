@@ -30,7 +30,7 @@ export default function SearchPage({ dids }: Props) {
         <div style={{ marginBottom: 14 }}>
           <img
             src="/DID_Registry_Icon.svg"
-            alt="DID Registry"
+            alt="DID Finder"
             style={{ width: 56, height: 56, display: 'block', margin: '0 auto' }}
           />
         </div>
@@ -42,7 +42,7 @@ export default function SearchPage({ dids }: Props) {
           fontFamily: 'var(--font-sans)',
           letterSpacing: '-0.015em',
         }}>
-          DID Registry
+          DID Finder
         </h1>
         <p style={{ fontSize: 14, color: '#8B8579', margin: 0, fontFamily: 'var(--font-sans)' }}>
           Search the open-source Data Item Description repository
