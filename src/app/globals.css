@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'SF Mono', Menlo, Consolas, monospace;
+  --bg-warm: #F5F1EB;
+  --sidebar-bg: #EDE9E1;
+  --ink: #302D28;
+  --ink-body: #504A40;
+  --accent: #61AAF2;
+  --rule: #D8D2C6;
+  --rule-light: #E8E3DA;
+}
+
+body {
+  --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: var(--font-geist-mono), 'SF Mono', Menlo, Consolas, monospace;
+  margin: 0;
+  background: var(--bg-warm);
+  font-family: var(--font-sans);
+  color: var(--ink);
+}
+
+::selection {
+  background: #D4E6FA;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::placeholder {
+  color: #B0AA9E;
+}
+
+a {
+  transition: color 0.1s;
+}
+
+/* ── Print styles ── */
+@media print {
+  @page {
+    size: letter;
+    margin: 1in 1.1in;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Remove card chrome — document fills the page */
+  .print-doc {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: white !important;
+    font-size: 10.5pt !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Scale headings for print */
+  .print-doc h1 {
+    font-size: 22pt !important;
+    letter-spacing: -0.025em !important;
+    line-height: 1.15 !important;
+    margin-bottom: 10pt !important;
+  }
+
+  /* Document number stamp */
+  .print-doc .print-docnum {
+    font-size: 9pt !important;
+    letter-spacing: 0.06em !important;
+    margin-bottom: 10pt !important;
+    color: #2E7AC8 !important;
+  }
+
+  /* Section dividers */
+  .print-doc [style*='borderTop'] {
+    border-top-color: #C8C4BC !important;
+  }
+  .print-doc [style*='borderBottom'] {
+    border-bottom-color: #C8C4BC !important;
+  }
+  .print-doc [style*='borderLeft: \'1px solid'] {
+    border-left-color: #C8C4BC !important;
+  }
+
+  /* Distribution statement banner */
+  .print-doc [style*='borderLeft: \'3px solid'] {
+    background: #EEF4FB !important;
+    border-left-color: #2E7AC8 !important;
+    color: #1A3D5C !important;
+  }
+
+  /* Prevent orphan section headings */
+  h2 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Prevent breaking inside individual requirements */
+  .print-doc > div > div {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Override accent color to print-safe blue */
+  * {
+    --accent: #2E7AC8 !important;
+  }
+}
