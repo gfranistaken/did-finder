@@ -127,7 +127,7 @@ export default function AboutPage() {
 
         <hr style={{ border: 'none', borderTop: '1px solid #E8E3DA', margin: '36px 0 20px' }} />
         <p style={{ fontSize: 13, color: '#B0AA9E' }}>
-          Built with Next.js and hosted on Cloudflare Pages. Data sourced from public DID documents.
+          Data sourced from public DID documents.
         </p>
       </div>
     </div>
