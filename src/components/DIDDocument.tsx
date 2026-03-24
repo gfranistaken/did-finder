@@ -37,7 +37,7 @@ export default function DIDDocument({ did }: Props) {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-warm)' }}>
       {/* Nav bar */}
-      <div className="no-print" style={{
+      <div className="no-print did-nav-inner" style={{
         padding: '0 32px',
         height: 52,
         display: 'flex',
@@ -95,13 +95,12 @@ export default function DIDDocument({ did }: Props) {
       </div>
 
       {/* Document body */}
-      <div className="print-doc" style={{
+      <div className="print-doc did-doc-body" style={{
         maxWidth: 1080,
         margin: '0 auto 80px',
         background: '#FFFEFA',
         boxShadow: '0 0 0 1px rgba(0,0,0,0.04), 0 2px 12px rgba(0,0,0,0.03)',
         borderRadius: 3,
-        padding: '64px 80px 72px',
         fontFamily: 'var(--font-sans)',
         fontSize: 14.5,
         lineHeight: 1.72,

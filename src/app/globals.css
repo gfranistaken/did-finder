@@ -35,6 +35,20 @@ body {
   color: #B0AA9E;
 }
 
+/* ── Document body responsive padding ── */
+.did-doc-body {
+  padding: 64px 80px 72px;
+}
+
+@media (max-width: 640px) {
+  .did-doc-body {
+    padding: 32px 20px 48px;
+  }
+  .did-nav-inner {
+    padding: 0 16px !important;
+  }
+}
+
 a {
   transition: color 0.1s;
 }
