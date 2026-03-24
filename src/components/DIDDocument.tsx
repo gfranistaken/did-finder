@@ -291,6 +291,35 @@ export default function DIDDocument({ did }: Props) {
           </span>
         </div>
       </div>
+
+      {/* Site footer */}
+      <div className="no-print" style={{
+        textAlign: 'center',
+        fontSize: 11.5,
+        color: '#B0AA9E',
+        fontFamily: 'var(--font-sans)',
+        lineHeight: 1.5,
+        paddingBottom: 24,
+      }}>
+        Community-maintained — not an official government database.
+        <br />
+        Verify against{' '}
+        <a href="https://assist.dla.mil" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
+          ASSIST
+        </a>
+        <span style={{ margin: '0 6px', opacity: 0.35 }}>·</span>
+        <a href="https://github.com/gfranistaken/did-data" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
+          GitHub
+        </a>
+        <span style={{ margin: '0 6px', opacity: 0.35 }}>·</span>
+        <Link href="/about" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
+          About
+        </Link>
+        <span style={{ margin: '0 6px', opacity: 0.35 }}>·</span>
+        <Link href="/disclaimer" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
+          Disclaimer
+        </Link>
+      </div>
     </div>
   );
 }
