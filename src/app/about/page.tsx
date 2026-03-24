@@ -96,8 +96,8 @@ export default function AboutPage() {
         <h2 style={{ fontSize: 17, fontWeight: 650, color: 'var(--ink)', margin: '32px 0 10px' }}>How to contribute</h2>
         <p>
           The DID data lives in a separate GitHub repository:{' '}
-          <a href="https://github.com/gfranistaked/did-data" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>
-            gfranistaked/did-data
+          <a href="https://github.com/gfranistaken/did-data" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>
+            gfranistaken/did-data
           </a>
           . To add a new DID or correct an existing one, open a pull request there. The schema and
           contribution instructions are documented in the repository.
@@ -105,7 +105,7 @@ export default function AboutPage() {
         <p>
           The viewer application itself (this site) is open source at{' '}
           <a href="https://github.com/gfranistaken/did-finder" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>
-            gfranistaked/did-finder
+            gfranistaken/did-finder
           </a>
           .
         </p>

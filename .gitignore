@@ -42,5 +42,5 @@ next-env.d.ts
 PRD_DID_Viewer.md
 SETUP_GUIDE.md
 
-# Local dev sample data (production data lives in gfranistaked/did-data)
+# Local dev sample data (production data lives in gfranistaken/did-data)
 /src/data/

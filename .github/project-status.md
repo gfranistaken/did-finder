@@ -26,8 +26,8 @@
 
 ## In Progress / Up Next
 
-- [x] Connect GitHub API — `gfranistaked/did-data`, branch `master`
-- [x] Data repo live at `https://github.com/gfranistaked/did-data`
+- [x] Connect GitHub API — `gfranistaken/did-data`, branch `master`
+- [x] Data repo live at `https://github.com/gfranistaken/did-data`
 - [ ] Push `did-registry` app to GitHub
 - [ ] Create Cloudflare Pages project (build: `npm run build`, output: `out`)
 - [ ] Add `CLOUDFLARE_DEPLOY_HOOK` secret to `did-data` repo settings

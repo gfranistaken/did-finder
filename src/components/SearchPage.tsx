@@ -192,7 +192,7 @@ export default function SearchPage({ dids }: Props) {
           ASSIST
         </a>
         <span style={{ margin: '0 6px', opacity: 0.35 }}>·</span>
-        <a href="https://github.com/gfranistaked/did-data" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
+        <a href="https://github.com/gfranistaken/did-data" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
           GitHub
         </a>
         <span style={{ margin: '0 6px', opacity: 0.35 }}>·</span>

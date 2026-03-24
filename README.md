@@ -21,11 +21,11 @@ DIDs are foundational documents in defense acquisition — they define the forma
 | PDF Export | `window.print()` with print CSS (`@react-pdf/renderer` planned) |
 | Hosting | Cloudflare Pages |
 | Domain | didfinder.com |
-| Data | [gfranistaked/did-data](https://github.com/gfranistaked/did-data) |
+| Data | [gfranistaken/did-data](https://github.com/gfranistaken/did-data) |
 
 ## Data Repo
 
-DID JSON files live in a separate repository: [`gfranistaked/did-data`](https://github.com/gfranistaked/did-data).
+DID JSON files live in a separate repository: [`gfranistaken/did-data`](https://github.com/gfranistaken/did-data).
 
 At build time, the app fetches all JSON files from that repo via the GitHub API. There is no database — everything is pre-rendered at build time.
 
@@ -66,7 +66,7 @@ src/
 
 ## Contributing
 
-To add or correct a DID, contribute to the data repo: [gfranistaked/did-data](https://github.com/gfranistaked/did-data).
+To add or correct a DID, contribute to the data repo: [gfranistaken/did-data](https://github.com/gfranistaken/did-data).
 
 To improve the viewer app, open a pull request here.
 

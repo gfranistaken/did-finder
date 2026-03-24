@@ -98,7 +98,7 @@ export default function DisclaimerPage() {
         <p>
           Data Item Descriptions are U.S. government works and are in the public domain. The structured
           JSON representation and site code are released under the MIT license. See{' '}
-          <a href="https://github.com/gfranistaked/did-finder" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>
+          <a href="https://github.com/gfranistaken/did-finder" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>
             the repository
           </a>
           {' '}for details.
@@ -114,8 +114,8 @@ export default function DisclaimerPage() {
         <hr style={{ border: 'none', borderTop: '1px solid #E8E3DA', margin: '36px 0 20px' }} />
         <p style={{ fontSize: 13, color: '#B0AA9E' }}>
           Questions? Open an issue at{' '}
-          <a href="https://github.com/gfranistaked/did-finder" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
-            github.com/gfranistaked/did-finder
+          <a href="https://github.com/gfranistaken/did-finder" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
+            github.com/gfranistaken/did-finder
           </a>
           .
         </p>

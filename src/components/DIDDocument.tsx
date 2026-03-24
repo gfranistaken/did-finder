@@ -68,7 +68,7 @@ export default function DIDDocument({ did }: Props) {
 
         <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
           <a
-            href={`https://github.com/gfranistaked/did-data/blob/master/dids/${did.slug}.json`}
+            href={`https://github.com/gfranistaken/did-data/blob/master/dids/${did.slug}.json`}
             target="_blank"
             rel="noopener noreferrer"
             style={{
