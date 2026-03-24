@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import type { DIDSummary } from '@/lib/types';
+
 import { searchDIDs } from '@/lib/search';
 
 interface Props {
@@ -194,6 +195,14 @@ export default function SearchPage({ dids }: Props) {
         <a href="https://github.com/gfranistaked/did-data" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
           GitHub
         </a>
+        <span style={{ margin: '0 6px', opacity: 0.35 }}>·</span>
+        <Link href="/about" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
+          About
+        </Link>
+        <span style={{ margin: '0 6px', opacity: 0.35 }}>·</span>
+        <Link href="/disclaimer" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
+          Disclaimer
+        </Link>
       </div>
     </div>
   );
