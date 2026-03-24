@@ -47,24 +47,29 @@ export default function DIDDocument({ did }: Props) {
         margin: '0 auto',
         width: '100%',
       }}>
-        <Link href="/" style={{
-          background: 'none',
-          border: 'none',
-          cursor: 'pointer',
-          fontSize: 13,
-          color: '#B0AA9E',
-          fontFamily: 'var(--font-sans)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: 6,
-          fontWeight: 450,
-          textDecoration: 'none',
-        }}>
-          <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-            <path d="M9 3L5 7.5 9 12" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          Back
-        </Link>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
+            <img src="/DID_Registry_Icon.svg" alt="DID Finder" style={{ width: 24, height: 24 }} />
+          </Link>
+          <Link href="/" style={{
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            fontSize: 13,
+            color: '#B0AA9E',
+            fontFamily: 'var(--font-sans)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 6,
+            fontWeight: 450,
+            textDecoration: 'none',
+          }}>
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+              <path d="M9 3L5 7.5 9 12" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Back
+          </Link>
+        </div>
 
         <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
           <a
