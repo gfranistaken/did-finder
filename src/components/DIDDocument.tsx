@@ -343,6 +343,40 @@ export default function DIDDocument({ did }: Props) {
           </div>
         )}
 
+        {/* Appendices */}
+        {did.appendix_pages && did.appendix_pages.length > 0 && (
+          <div style={{ marginBottom: 48 }}>
+            <SectionLabel>Appendices</SectionLabel>
+            <div style={{ marginTop: 24, display: 'flex', flexDirection: 'column', gap: 40 }}>
+              {did.appendix_pages.map((appendix, i) => (
+                <div key={i}>
+                  {appendix.image_data && (
+                    <img
+                      src={appendix.image_data}
+                      alt={appendix.label}
+                      style={{
+                        maxWidth: '100%',
+                        height: 'auto',
+                        border: '1px solid #E8E4DC',
+                        borderRadius: 4,
+                        display: 'block',
+                      }}
+                    />
+                  )}
+                  <p style={{
+                    fontSize: 13,
+                    color: '#7A756C',
+                    margin: '10px 0 0 0',
+                    textAlign: 'center',
+                  }}>
+                    {appendix.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Footer */}
         <div style={{
           paddingTop: 32,
