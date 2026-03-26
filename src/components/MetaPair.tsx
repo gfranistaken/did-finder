@@ -4,7 +4,8 @@ interface Props {
 }
 
 export default function MetaPair({ label, value }: Props) {
-  if (!value || value === 'N/A' || value === '') return null;
+  const display = (!value || value === 'N/A' || value === '') ? '—' : value;
+  const isEmpty = display === '—';
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
       <span style={{
@@ -19,10 +20,10 @@ export default function MetaPair({ label, value }: Props) {
       <span style={{
         fontSize: 13.5,
         fontWeight: 450,
-        color: '#4A4640',
+        color: isEmpty ? '#C4BFB6' : '#4A4640',
         fontFamily: 'var(--font-sans)',
       }}>
-        {value}
+        {display}
       </span>
     </div>
   );

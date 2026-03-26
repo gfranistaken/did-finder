@@ -165,8 +165,14 @@ export default function DIDDocument({ did }: Props) {
           <MetaPair label="Preparing Activity" value={did.preparing_activity} />
           <MetaPair label="Project Number" value={did.project_number} />
           <MetaPair label="OPR" value={did.office_of_primary_responsibility} />
-          <MetaPair label="DTIC Applicable" value={did.dtic_applicable !== 'N/A' ? did.dtic_applicable : undefined} />
-          <MetaPair label="GIDEP Applicable" value={did.gidep_applicable !== 'N/A' ? did.gidep_applicable : undefined} />
+          <MetaPair label="DTIC Applicable" value={did.dtic_applicable} />
+          <MetaPair label="GIDEP Applicable" value={did.gidep_applicable} />
+          <MetaPair label="Limitation" value={did.limitation} />
+          <MetaPair label="Applicable Forms" value={did.applicable_forms} />
+          <MetaPair label="Approval Limitation" value={did.approval_limitation} />
+          <MetaPair label="Form Version" value={did.form_version} />
+          <MetaPair label="DID Format" value={did.did_format} />
+          <MetaPair label="963C Compliant" value={did['963c_compliant'] === true ? 'Yes' : did['963c_compliant'] === false ? 'No' : undefined} />
         </div>
 
         {/* Distribution statement */}
