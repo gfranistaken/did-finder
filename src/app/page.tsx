@@ -21,7 +21,7 @@ export default async function Home() {
       d.title,
       d.summary,
       d.use_relationship,
-      flattenReqs(d.requirements),
+      flattenReqs(d.preparation_instructions),
     ].join(' '),
   }));
 
