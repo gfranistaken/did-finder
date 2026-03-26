@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import type { DIDDocument } from '@/lib/types';
-import { didToMarkdown } from '@/lib/export-markdown';
 import { exportToPDF } from '@/lib/export-pdf';
 
 interface Props {
@@ -11,20 +10,6 @@ interface Props {
 
 export default function ExportDropdown({ did }: Props) {
   const [open, setOpen] = useState(false);
-
-  const handleMarkdown = () => {
-    const md = didToMarkdown(did);
-    const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${did.slug}.md`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    setOpen(false);
-  };
 
   const handlePDF = () => {
     exportToPDF(did);
@@ -79,11 +64,6 @@ export default function ExportDropdown({ did }: Props) {
               label: 'PDF',
               icon: 'M3 1h5l3 3v8a1 1 0 01-1 1H3a1 1 0 01-1-1V2a1 1 0 011-1z M8 1v3h3 M5 8h4 M5 10h4 M5 6h2',
               onClick: handlePDF,
-            },
-            {
-              label: 'Markdown',
-              icon: 'M2 3h10v8H2z M4 8V6l1.5 2L7 6v2 M9 6v2m0 0l1-1m-1 1l-1-1',
-              onClick: handleMarkdown,
             },
           ].map((fmt) => (
             <button
