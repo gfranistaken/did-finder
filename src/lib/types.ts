@@ -58,6 +58,7 @@ export interface DIDDocument {
     extraction_method: string;
   };
   _schema_version: string;
+  _filename?: string;
 }
 
 export interface DIDSummary {

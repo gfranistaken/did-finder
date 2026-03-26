@@ -13,7 +13,9 @@ export async function fetchAllDIDs(): Promise<DIDDocument[]> {
     const files = fs.readdirSync(dataDir).filter((f: string) => f.endsWith('.json'));
     return files.map((f: string) => {
       const raw = fs.readFileSync(path.join(dataDir, f), 'utf-8');
-      return JSON.parse(raw) as DIDDocument;
+      const did = JSON.parse(raw) as DIDDocument;
+      did._filename = f;
+      return did;
     });
   }
 
@@ -30,7 +32,9 @@ export async function fetchAllDIDs(): Promise<DIDDocument[]> {
   const dids = await Promise.all(
     jsonFiles.map(async (file) => {
       const raw = await fetch(file.download_url);
-      return raw.json() as Promise<DIDDocument>;
+      const did = await raw.json() as DIDDocument;
+      did._filename = file.name;
+      return did;
     })
   );
 
