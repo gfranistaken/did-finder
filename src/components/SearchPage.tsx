@@ -10,12 +10,22 @@ interface Props {
   dids: DIDSummary[];
 }
 
+const FILTERS = ['MGMT', 'SESS', 'TMSS', 'SAFT', 'PACK', 'MISC', 'ATTS'];
+
+function didType(documentNumber: string): string {
+  return documentNumber.split('-')[1] ?? '';
+}
+
 export default function SearchPage({ dids }: Props) {
   const [query, setQuery] = useState('');
   const [focused, setFocused] = useState(false);
+  const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
   const hasQuery = query.length >= 2;
-  const results = hasQuery ? searchDIDs(query, dids) : dids;
+  const searched = hasQuery ? searchDIDs(query, dids) : dids;
+  const results = activeFilter
+    ? searched.filter((d) => didType(d.document_number) === activeFilter)
+    : searched;
 
   return (
     <div style={{
@@ -106,6 +116,36 @@ export default function SearchPage({ dids }: Props) {
         </div>
       </div>
 
+      {/* Filter pills */}
+      <div style={{ width: '100%', maxWidth: 1080, padding: '10px 24px 0' }}>
+        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+          {FILTERS.map((f) => {
+            const isActive = activeFilter === f;
+            return (
+              <button
+                key={f}
+                onClick={() => setActiveFilter(isActive ? null : f)}
+                style={{
+                  padding: '4px 11px',
+                  borderRadius: 20,
+                  border: isActive ? '1.5px solid var(--accent)' : '1.5px solid #DDD8CE',
+                  background: isActive ? 'var(--accent)' : 'transparent',
+                  color: isActive ? '#fff' : '#8B8579',
+                  fontSize: 11.5,
+                  fontWeight: 600,
+                  fontFamily: 'var(--font-mono)',
+                  letterSpacing: '0.04em',
+                  cursor: 'pointer',
+                  transition: 'all 0.12s ease',
+                }}
+              >
+                {f}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
       {/* Results / browse listing */}
       <div style={{ width: '100%', maxWidth: 1080, padding: '0 24px' }}>
         <div style={{
@@ -115,7 +155,7 @@ export default function SearchPage({ dids }: Props) {
           fontFamily: 'var(--font-sans)',
           letterSpacing: '0.02em',
         }}>
-          {hasQuery
+          {hasQuery || activeFilter
             ? `${results.length} result${results.length !== 1 ? 's' : ''}`
             : `${dids.length} document${dids.length !== 1 ? 's' : ''}`}
         </div>
