@@ -170,80 +170,109 @@ export default function DIDDocument({ did }: Props) {
         </div>
 
         {/* Distribution statement */}
-        {did.distribution_statement && (
-          <div style={{
-            padding: '12px 16px',
-            marginBottom: 40,
-            fontSize: 13,
-            lineHeight: 1.6,
-            background: '#F6F9FD',
-            borderLeft: '3px solid var(--accent)',
-            borderRadius: '0 4px 4px 0',
-            fontFamily: 'var(--font-sans)',
-            color: '#4A6A8A',
-            fontWeight: 450,
-          }}>
-            {did.distribution_statement}
-          </div>
-        )}
+        <div style={{
+          padding: '12px 16px',
+          marginBottom: 40,
+          fontSize: 13,
+          lineHeight: 1.6,
+          background: '#F6F9FD',
+          borderLeft: '3px solid var(--accent)',
+          borderRadius: '0 4px 4px 0',
+          fontFamily: 'var(--font-sans)',
+          color: did.distribution_statement ? '#4A6A8A' : '#C4BFB6',
+          fontWeight: 450,
+        }}>
+          {did.distribution_statement || '—'}
+        </div>
 
         {/* Supersedes & Related */}
-        {((did.supersedes && did.supersedes.length > 0) || (did.related_dids && did.related_dids.length > 0)) && (
-          <div style={{ display: 'flex', gap: 48, marginBottom: 48 }}>
-            {did.supersedes && did.supersedes.length > 0 && (
-              <div>
-                <div style={{ fontSize: 11, fontWeight: 500, color: '#AAA59C', letterSpacing: '0.03em', marginBottom: 8 }}>
-                  Supersedes
-                </div>
-                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                  {did.supersedes.map((s) => (
-                    <span key={s} style={{
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: 12.5,
-                      fontWeight: 450,
-                      color: '#7A756C',
-                      background: '#F2EFEA',
-                      padding: '4px 10px',
-                      borderRadius: 4,
-                    }}>
-                      {s}
-                    </span>
-                  ))}
-                </div>
+        <div style={{ display: 'flex', gap: 48, marginBottom: 48 }}>
+          <div>
+            <div style={{ fontSize: 11, fontWeight: 500, color: '#AAA59C', letterSpacing: '0.03em', marginBottom: 8 }}>
+              Supersedes
+            </div>
+            {did.supersedes && did.supersedes.length > 0 ? (
+              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                {did.supersedes.map((s) => (
+                  <span key={s} style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: 12.5,
+                    fontWeight: 450,
+                    color: '#7A756C',
+                    background: '#F2EFEA',
+                    padding: '4px 10px',
+                    borderRadius: 4,
+                  }}>
+                    {s}
+                  </span>
+                ))}
               </div>
-            )}
-            {did.related_dids && did.related_dids.length > 0 && (
-              <div>
-                <div style={{ fontSize: 11, fontWeight: 500, color: '#AAA59C', letterSpacing: '0.03em', marginBottom: 8 }}>
-                  Related
-                </div>
-                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                  {did.related_dids.map((r) => (
-                    <span key={r} style={{
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: 12.5,
-                      fontWeight: 450,
-                      color: '#7A756C',
-                      background: '#F2EFEA',
-                      padding: '4px 10px',
-                      borderRadius: 4,
-                    }}>
-                      {r}
-                    </span>
-                  ))}
-                </div>
-              </div>
+            ) : (
+              <span style={{ fontSize: 13, color: '#C4BFB6' }}>—</span>
             )}
           </div>
-        )}
+          <div>
+            <div style={{ fontSize: 11, fontWeight: 500, color: '#AAA59C', letterSpacing: '0.03em', marginBottom: 8 }}>
+              Related
+            </div>
+            {did.related_dids && did.related_dids.length > 0 ? (
+              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                {did.related_dids.map((r) => (
+                  <span key={r} style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: 12.5,
+                    fontWeight: 450,
+                    color: '#7A756C',
+                    background: '#F2EFEA',
+                    padding: '4px 10px',
+                    borderRadius: 4,
+                  }}>
+                    {r}
+                  </span>
+                ))}
+              </div>
+            ) : (
+              <span style={{ fontSize: 13, color: '#C4BFB6' }}>—</span>
+            )}
+          </div>
+        </div>
+
+        {/* Description & Purpose */}
+        <div style={{ marginBottom: 48 }}>
+          <SectionLabel>Description &amp; Purpose</SectionLabel>
+          <div style={{ marginTop: 16, color: '#5C574E', fontSize: 14.5 }}>
+            {did.description_purpose
+              ? did.description_purpose.split('\n').filter(Boolean).map((para, i) => (
+                  <p key={i} style={{ margin: '0 0 12px 0' }}>{para}</p>
+                ))
+              : <span style={{ color: '#C4BFB6' }}>—</span>
+            }
+          </div>
+        </div>
+
+        {/* Application & Interrelationship */}
+        <div style={{ marginBottom: 48 }}>
+          <SectionLabel>Application &amp; Interrelationship</SectionLabel>
+          <div style={{ marginTop: 16, color: '#5C574E', fontSize: 14.5 }}>
+            {did.application_interrelationship
+              ? did.application_interrelationship.split('\n').filter(Boolean).map((para, i) => (
+                  <p key={i} style={{ margin: '0 0 12px 0' }}>{para}</p>
+                ))
+              : <span style={{ color: '#C4BFB6' }}>—</span>
+            }
+          </div>
+        </div>
 
         {/* Use & Relationship */}
         <div style={{ marginBottom: 48 }}>
           <SectionLabel>Use &amp; Relationship</SectionLabel>
           <div style={{ marginTop: 16, color: '#5C574E', fontSize: 14.5 }}>
-            {did.use_relationship.split('\n').filter(Boolean).map((para, i) => (
-              <p key={i} style={{ margin: '0 0 12px 0' }}>{para}</p>
-            ))}
+            {did.use_relationship
+              ? did.use_relationship.split('\n').filter(Boolean).map((para, i) => (
+                  <p key={i} style={{ margin: '0 0 12px 0' }}>{para}</p>
+                ))
+              : <span style={{ color: '#C4BFB6' }}>—</span>
+            }
           </div>
         </div>
 
@@ -256,11 +285,11 @@ export default function DIDDocument({ did }: Props) {
         </div>
 
         {/* References */}
-        {did.references && did.references.length > 0 && (
-          <div style={{ marginBottom: 48 }}>
-            <SectionLabel>References</SectionLabel>
-            <div style={{ marginTop: 16 }}>
-              {did.references.map((ref, i) => (
+        <div style={{ marginBottom: 48 }}>
+          <SectionLabel>References</SectionLabel>
+          <div style={{ marginTop: 16 }}>
+            {did.references && did.references.length > 0 ? (
+              did.references.map((ref, i) => (
                 <p key={i} style={{ fontSize: 14, color: '#5C574E', margin: '0 0 6px 0' }}>
                   {ref.label}{' '}
                   <a
@@ -272,10 +301,12 @@ export default function DIDDocument({ did }: Props) {
                     {ref.url}
                   </a>
                 </p>
-              ))}
-            </div>
+              ))
+            ) : (
+              <span style={{ fontSize: 14, color: '#C4BFB6' }}>—</span>
+            )}
           </div>
-        )}
+        </div>
 
         {/* Figures */}
         {did.figures && did.figures.length > 0 && (

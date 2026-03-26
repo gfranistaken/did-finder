@@ -39,7 +39,7 @@ export default function Requirement({ req, depth = 0 }: Props) {
             color: 'var(--ink)',
             letterSpacing: '-0.008em',
           }}>
-            {req.title}{req.content ? '.' : ''}
+            {req.title}
           </span>
           {req.content && (
             <span style={{ fontWeight: 400, color: '#5C574E', marginLeft: 4 }}>
