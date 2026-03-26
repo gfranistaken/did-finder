@@ -247,10 +247,10 @@ export default function DIDDocument({ did }: Props) {
           </div>
         </div>
 
-        {/* Requirements */}
+        {/* Preparation Instructions */}
         <div style={{ marginBottom: 48 }}>
-          <SectionLabel>Requirements</SectionLabel>
-          {did.requirements.map((req) => (
+          <SectionLabel>Preparation Instructions</SectionLabel>
+          {did.preparation_instructions.map((req) => (
             <Requirement key={req.number} req={req} depth={0} />
           ))}
         </div>

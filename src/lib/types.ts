@@ -17,6 +17,8 @@ export interface DIDDocument {
   title: string;
   summary: string;
   approval_date: string;
+  did_format?: string;
+  "963c_compliant"?: boolean;
   amsc_number: string;
   limitation: string;
   dtic_applicable: string;
@@ -25,13 +27,16 @@ export interface DIDDocument {
   preparing_activity: string;
   project_number: string;
   applicable_forms: string;
+  approval_limitation?: string;
   form_version?: string;
   use_relationship: string;
+  description_purpose?: string;
+  application_interrelationship?: string;
   supersedes: string[];
   related_dids: string[];
   references: DIDReference[];
   distribution_statement: string;
-  requirements: DIDRequirement[];
+  preparation_instructions: DIDRequirement[];
   _source?: {
     source_file: string;
     extraction_date: string;

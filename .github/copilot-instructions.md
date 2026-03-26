@@ -54,10 +54,12 @@ src/
 ## DID JSON Schema
 
 Full schema reference is in `.github/skills/did-schema/SKILL.md`. Key points:
-- Schema version: `2.0`
-- Core fields: `document_number`, `slug`, `title`, `approval_date`, `requirements[]`
-- Requirements are a **recursive tree**: each node has `number`, `title`, `content`, `asterisk`, `children[]`
-- `asterisk: true` means the requirement is tailorable
+- Schema version: `3.0`
+- Core fields: `document_number`, `slug`, `title`, `approval_date`, `did_format`, `963c_compliant`, `preparation_instructions[]`
+- `preparation_instructions` replaces the old `requirements` field — same recursive tree structure
+- Each node has `number`, `title`, `content`, `asterisk`, `children[]`
+- `asterisk: true` means the requirement is tailorable (conditional)
+- New fields: `did_format` (`dd_form_1664` or `free_text`), `963c_compliant` (bool), `approval_limitation`, `description_purpose`, `application_interrelationship`
 
 ## Build & Dev Commands
 

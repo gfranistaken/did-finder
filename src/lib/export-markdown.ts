@@ -1,12 +1,12 @@
 import type { DIDDocument, DIDRequirement } from './types';
 
-function renderRequirements(reqs: DIDRequirement[], depth = 0): string {
+function renderPreparationInstructions(reqs: DIDRequirement[], depth = 0): string {
   return reqs.map(req => {
     const indent = '  '.repeat(depth);
     let line = `${indent}**${req.number}. ${req.title}.** ${req.content}`;
     if (req.asterisk) line += ' *(tailorable)*';
     if (req.children && req.children.length > 0) {
-      line += '\n' + renderRequirements(req.children, depth + 1);
+      line += '\n' + renderPreparationInstructions(req.children, depth + 1);
     }
     return line;
   }).join('\n\n');
@@ -43,8 +43,8 @@ export function didToMarkdown(did: DIDDocument): string {
   lines.push(`## Use & Relationship\n`);
   lines.push(did.use_relationship + '\n');
 
-  lines.push(`## Requirements\n`);
-  lines.push(renderRequirements(did.requirements));
+  lines.push(`## Preparation Instructions\n`);
+  lines.push(renderPreparationInstructions(did.preparation_instructions));
 
   if (did.references.length > 0) {
     lines.push(`\n## References\n`);
