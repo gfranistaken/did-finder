@@ -277,6 +277,41 @@ export default function DIDDocument({ did }: Props) {
           </div>
         )}
 
+        {/* Figures */}
+        {did.figures && did.figures.length > 0 && (
+          <div style={{ marginBottom: 48 }}>
+            <SectionLabel>Figures</SectionLabel>
+            <div style={{ marginTop: 24, display: 'flex', flexDirection: 'column', gap: 40 }}>
+              {did.figures.map((fig) => (
+                <div key={fig.number}>
+                  {fig.image_data && (
+                    <img
+                      src={fig.image_data}
+                      alt={`Figure ${fig.number}: ${fig.caption}`}
+                      style={{
+                        maxWidth: '100%',
+                        height: 'auto',
+                        border: '1px solid #E8E4DC',
+                        borderRadius: 4,
+                        display: 'block',
+                      }}
+                    />
+                  )}
+                  <p style={{
+                    fontSize: 13,
+                    color: '#7A756C',
+                    margin: '10px 0 0 0',
+                    fontStyle: 'italic',
+                    textAlign: 'center',
+                  }}>
+                    <strong style={{ fontStyle: 'normal' }}>Figure {fig.number}.</strong>{' '}{fig.caption}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Footer */}
         <div style={{
           paddingTop: 32,
