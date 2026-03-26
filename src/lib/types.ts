@@ -11,6 +11,13 @@ export interface DIDRequirement {
   children: DIDRequirement[];
 }
 
+export interface DIDFigure {
+  number: string;
+  caption: string;
+  page: number;
+  image_data?: string;
+}
+
 export interface DIDDocument {
   document_number: string;
   slug: string;
@@ -37,6 +44,7 @@ export interface DIDDocument {
   references: DIDReference[];
   distribution_statement: string;
   preparation_instructions: DIDRequirement[];
+  figures?: DIDFigure[];
   _source?: {
     source_file: string;
     extraction_date: string;
