@@ -214,19 +214,29 @@ export default function SearchPage({ dids }: Props) {
         )}
       </div>
 
-      {/* Footer */}
+      {/* Spacer so content clears the sticky footer */}
+      <div style={{ height: 56 }} />
+
+      {/* Sticky footer bar */}
       <div style={{
-        marginTop: 'auto',
-        paddingTop: 48,
-        paddingBottom: 24,
+        position: 'fixed',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        padding: '10px 24px',
+        background: 'rgba(251,248,242,0.88)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        borderTop: '1px solid #E8E3DA',
         textAlign: 'center',
         fontSize: 11.5,
         color: '#B0AA9E',
         fontFamily: 'var(--font-sans)',
         lineHeight: 1.5,
+        zIndex: 100,
       }}>
         Community-maintained — not an official government database.
-        <br />
+        <span style={{ margin: '0 8px', opacity: 0.35 }}>·</span>
         Verify against{' '}
         <a href="https://assist.dla.mil" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', textDecoration: 'none' }}>
           ASSIST
