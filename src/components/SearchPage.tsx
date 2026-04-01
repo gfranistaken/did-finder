@@ -10,7 +10,7 @@ interface Props {
   dids: DIDSummary[];
 }
 
-const FILTERS = ['MGMT', 'SESS', 'TMSS', 'SAFT', 'PACK', 'MISC', 'ATTS'];
+const FILTERS = ['ADMN', 'DRPR', 'IPSC', 'MGMT', 'MISC', 'MNTY', 'NDTI', 'PSSS', 'QCIC', 'SAFT', 'SDMP', 'SESS', 'STDZ', 'TMSS'];
 
 function didType(documentNumber: string): string {
   return documentNumber.split('-')[1] ?? '';
